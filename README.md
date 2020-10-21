@@ -19,7 +19,7 @@
 ## Install
 
 ```sh
-Coming Soon
+npm i tesseractyl-legacy
 ```
 
 ## Author
