@@ -21,7 +21,6 @@ module.exports={
 
 // Users //
 
-
 // Node //
 
     listNodes: function(application){
@@ -99,9 +98,10 @@ module.exports={
         .then(res => res.json())
         .then(json => console.log(json))
         return; 
-    }
-
-
+    },
 
 // Nodes // 
+
+     
+    
 }
