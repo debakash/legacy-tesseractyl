@@ -1,14 +1,34 @@
 {
   "name": "legacy-tesseractyl",
   "version": "0.0.2",
-  "description": "",
+  "description": "The simplified Pterodactyl (LEGACY) API Wrapper for Node.js, without any hassle",
   "main": "./src/index.js",
   "scripts": {
     "test": "node index.js"
   },
-  "author": "Akash Deb",
+  "author": "Akash Deb & Aditya Das",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debakash/legacy-tesseractyl.git"
+  },
+  "maintainers": [
+    {
+      "email": "killinggamer4mc@gmail.com",
+      "name": "Aditya Das",
+      "url": "https://quantumsoul.xyz"
+    },
+    {
+      "email": "akashxdeb@gmail.com",
+      "name": "Akash Deb"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/debakash/legacy-tesseractyl/issues"
+  },
+  "homepage": "https://github.com/debakash/legacy-tesseractyl#readme",
   "dependencies": {
     "node-fetch": "^2.6.1"
   }
 }
+ 
