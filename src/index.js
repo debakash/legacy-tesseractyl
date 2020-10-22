@@ -22,7 +22,6 @@ module.exports={
 // Users //
 
 // Node //
-
     listNodes: function(application){
         if(!application) throw new TypeError('Your login credentials are not specified!')
         fetch(`${application.panelURL}/api/application/nodes`, {
@@ -37,7 +36,6 @@ module.exports={
         .then(json => console.log(json))
         return; 
     },
-
     getNode: function(application, nodeId){
         if(!application) throw new TypeError('Your login credentials are not specified!')
         if(!nodeId) throw new TypeError('You have not specified your nodeId')
@@ -53,7 +51,6 @@ module.exports={
         .then(json => console.log(json))
         return; 
     },
-
     createNode: function(application, nodeName, locationId, public, fqdn, scheme, behindProxy, memory, memoryOverallocation, disk, diskOverallocation){
         if(!application) throw new TypeError('Your login credentials are not specified!')
         if(!nodeName) throw new TypeError('You have not specified the nodeName')
@@ -99,7 +96,6 @@ module.exports={
         .then(json => console.log(json))
         return; 
     },
-
     editNode: function(application, nodeName, locationId, public, fqdn, scheme, behindProxy, memory, memoryOverallocation, disk, diskOverallocation){
         if(!application) throw new TypeError('Your login credentials are not specified!')
         if(!nodeName) throw new TypeError('You have not specified the nodeName')
@@ -145,8 +141,6 @@ module.exports={
         .then(json => console.log(json))
         return; 
     },
-// https://pterodactyl.app/api/application/nodes/<node-id>
-
     deleteNode: function(application, nodeId){
         fetch(`${application.panelURL}/api/application/nodes/${nodeId}`, {
             method: 'DELETE',
@@ -160,7 +154,6 @@ module.exports={
         .then(json => console.log(json))
         return; 
     },
-
     listNodeAllocation: function(application, nodeId){
         fetch(`${application.panelURL}/api/application/nodes/${nodeId}/allocations`, {
             method: 'GET',
@@ -174,15 +167,12 @@ module.exports={
         .then(json => console.log(json))
         return;
     },
-
     createAllocation: function(application, nodeId, ip, alias, ports){
-        
         let body = {
             "ip": ip,
             "alias": alias,
             "ports": ports
           }
-
         fetch(`${application.panelURL}/api/application/nodes/${nodeId}/allocations`, {
             body: JSON.stringify(body),
             method: 'POST',
@@ -195,8 +185,20 @@ module.exports={
         .then(res => res.json())
         .then(json => console.log(json))
         return;
-    }
-
+    },
+    deleteAllocation: function(application, nodeId, allocationId){
+        fetch(`${application.panelURL}/api/application/nodes/${nodeId}/allocations/${allocationId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${application.apiKey}`,
+                'Content-Type': 'application/json',
+                'Accept': 'Application/vnd.pterodactyl.v1+json'
+            },
+        })
+        .then(res => res.json())
+        .then(json => console.log(json))
+        return;
+    }  
 // Nodes // 
 
      
