@@ -173,6 +173,28 @@ module.exports={
         .then(res => res.json())
         .then(json => console.log(json))
         return;
+    },
+
+    createAllocation: function(application, nodeId, ip, alias, ports){
+        
+        let body = {
+            "ip": ip,
+            "alias": alias,
+            "ports": ports
+          }
+
+        fetch(`${application.panelURL}/api/application/nodes/${nodeId}/allocations`, {
+            body: JSON.stringify(body),
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${application.apiKey}`,
+                'Content-Type': 'application/json',
+                'Accept': 'Application/vnd.pterodactyl.v1+json'
+            },
+        })
+        .then(res => res.json())
+        .then(json => console.log(json))
+        return;
     }
 
 // Nodes // 
