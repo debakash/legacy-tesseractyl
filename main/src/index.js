@@ -306,6 +306,25 @@ module.exports = {
             .then(res => res.json())
             .then(json => console.log(json))
         return;
-    }
+    },
     // Nodes // 
+
+    // Locations //
+    listLocations: function(application){
+
+    },
+
+    getLocation: function(application){
+
+    },
+
+    editLocation: function(application){
+
+    },
+
+    deleteLocation: function(application){
+
+    },
+    // Locations // 
+    
 }
