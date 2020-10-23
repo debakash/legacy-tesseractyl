@@ -19,6 +19,12 @@ module.exports={
         return; 
     },
 
+    // https://pterodactyl.app/api/application/users/<user-id>
+
+    getUser: function(application, userId){
+        if(!application) throw new TypeError('Your login credentials are not specified!')
+    },
+
 // Users //
 
 // Node //
@@ -36,6 +42,7 @@ module.exports={
         .then(json => console.log(json))
         return; 
     },
+
     getNode: function(application, nodeId){
         if(!application) throw new TypeError('Your login credentials are not specified!')
         if(!nodeId) throw new TypeError('You have not specified your nodeId')
@@ -51,6 +58,7 @@ module.exports={
         .then(json => console.log(json))
         return; 
     },
+
     createNode: function(application, nodeName, locationId, public, fqdn, scheme, behindProxy, memory, memoryOverallocation, disk, diskOverallocation){
         if(!application) throw new TypeError('Your login credentials are not specified!')
         if(!nodeName) throw new TypeError('You have not specified the nodeName')
@@ -96,6 +104,7 @@ module.exports={
         .then(json => console.log(json))
         return; 
     },
+
     editNode: function(application, nodeName, locationId, public, fqdn, scheme, behindProxy, memory, memoryOverallocation, disk, diskOverallocation){
         if(!application) throw new TypeError('Your login credentials are not specified!')
         if(!nodeName) throw new TypeError('You have not specified the nodeName')
@@ -141,7 +150,9 @@ module.exports={
         .then(json => console.log(json))
         return; 
     },
+
     deleteNode: function(application, nodeId){
+        if(!application) throw new TypeError('Your login credentials are not specified!')
         fetch(`${application.panelURL}/api/application/nodes/${nodeId}`, {
             method: 'DELETE',
             headers: {
@@ -154,7 +165,9 @@ module.exports={
         .then(json => console.log(json))
         return; 
     },
+
     listNodeAllocation: function(application, nodeId){
+        if(!application) throw new TypeError('Your login credentials are not specified!')
         fetch(`${application.panelURL}/api/application/nodes/${nodeId}/allocations`, {
             method: 'GET',
             headers: {
@@ -167,7 +180,9 @@ module.exports={
         .then(json => console.log(json))
         return;
     },
+
     createAllocation: function(application, nodeId, ip, alias, ports){
+        if(!application) throw new TypeError('Your login credentials are not specified!')
         let body = {
             "ip": ip,
             "alias": alias,
@@ -186,7 +201,9 @@ module.exports={
         .then(json => console.log(json))
         return;
     },
+
     deleteAllocation: function(application, nodeId, allocationId){
+        if(!application) throw new TypeError('Your login credentials are not specified!')
         fetch(`${application.panelURL}/api/application/nodes/${nodeId}/allocations/${allocationId}`, {
             method: 'DELETE',
             headers: {
@@ -201,6 +218,8 @@ module.exports={
     }  
 // Nodes // 
 
+
+
      
     
-}
+}   
