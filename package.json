@@ -1,6 +1,6 @@
 {
   "name": "legacy-tesseractyl",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "The simplified Pterodactyl (LEGACY) API Wrapper for Node.js, without any hassle",
   "main": "./src/index.js",
   "scripts": {
