@@ -1,8 +1,9 @@
 const tesseractyl = require('legacy-tesseractyl')
+const tesseractyl_beta = require('../main/src/index')
 const application = {
         "panelURL": "https://panel.creeper.wtf",
         "apiKey": ""
     }
 
 
-tesseractyl.listUser(application)
+tesseractyl_beta.getUser(application, 1) 
