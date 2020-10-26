@@ -311,7 +311,18 @@ module.exports = {
 
     // Locations //
     listLocations: function(application){
-
+        if (!application) throw new TypeError('Your login credentials are not specified!')
+        fetch(`${application.panelURL}/api/application/locations`, {
+                method: 'get',
+                headers: {
+                    'Authorization': `Bearer ${application.apiKey}`,
+                    'Content-Type': 'application/json',
+                    'Accept': 'Application/vnd.pterodactyl.v1+json'
+                },
+            })
+            .then(res => res.json())
+            .then(json => console.log(json))
+        return;
     },
 
     getLocation: function(application){
@@ -326,5 +337,4 @@ module.exports = {
 
     },
     // Locations // 
-    
 }
