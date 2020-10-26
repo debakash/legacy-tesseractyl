@@ -325,12 +325,66 @@ module.exports = {
         return;
     },
 
-    getLocation: function(application){
-
+    getLocation: function(application, locationId){
+        if (!application) throw new TypeError('Your login credentials are not specified!')
+        fetch(`${application.panelURL}/api/application/locations/${locationId}`, {
+                method: 'get',
+                headers: {
+                    'Authorization': `Bearer ${application.apiKey}`,
+                    'Content-Type': 'application/json',
+                    'Accept': 'Application/vnd.pterodactyl.v1+json'
+                },
+            })
+            .then(res => res.json())
+            .then(json => console.log(json))
+        return;
     },
 
-    editLocation: function(application){
+    createLocation: function(application, short, long){
+        if (!application) throw new TypeError('Your login credentials are not specified!')
+        if (!short) throw new TypeError('The short name is not specified!')
+        if (!long) throw new TypeError('The long name is not specified!')
+        let body = {
+            "short": short,
+            "long": long
+          }
 
+        fetch(`${application.panelURL}/api/application/locations`, {
+                body: JSON.stringify(body),
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${application.apiKey}`,
+                    'Content-Type': 'application/json',
+                    'Accept': 'Application/vnd.pterodactyl.v1+json'
+                },
+            })
+            .then(res => res.json())
+            .then(json => console.log(json))
+        return;
+    },
+
+    editLocation: function(application, locationId, short, long){
+        if (!application) throw new TypeError('Your login credentials are not specified!')
+        if(!locationId) throw new TypeError('Your location is not provided.')
+        if (!short) throw new TypeError('The short name is not specified!')
+        if (!long) throw new TypeError('The long name is not specified!')
+        let body = {
+            "short": short,
+            "long": long
+          }
+
+        fetch(`${application.panelURL}/api/application/locations/${locationId}`, {
+                body: JSON.stringify(body),
+                method: 'e',
+                headers: {
+                    'Authorization': `Bearer ${application.apiKey}`,
+                    'Content-Type': 'application/json',
+                    'Accept': 'Application/vnd.pterodactyl.v1+json'
+                },
+            })
+            .then(res => res.json())
+            .then(json => console.log(json))
+        return;
     },
 
     deleteLocation: function(application){
